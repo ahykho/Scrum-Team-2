@@ -8,4 +8,5 @@ https://miro.com/welcomeonboard/Rm5hakZWUGkwS0lOZEdxdFZ0WXhoOXVIaTlhbXNIbHB5d1hz
 
 
 Planning Poker:
+
 https://agilecasino.kehrwasser.com/room/2174
