@@ -1,0 +1,86 @@
+<?php
+	session_unset();
+	// session_destroy();
+	session_start();
+?>
+<html>
+  <head>
+    <style>
+      .login-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .form-control {
+        margin: 1em 0;
+        text-align: center;
+      }
+      .form-control label {
+        display: block;
+      }
+      .form-control input {
+        padding: 0.5em;
+        font-size: 1em;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <form class="login-form" action="login.php" method="post">
+      <div class="form-control">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email">
+      </div>
+      <div class="form-control">
+        <label for="password">Passwort:</label>
+        <input type="password" id="password" name="password">
+      </div>
+	  <div class="form-control right-aligned">
+        <a href="reset-password.html">Passwort vergessen?! :O </a>
+      </div>
+      <div class="form-control">
+        <a href="register.html">Registrierung</a>
+      </div>
+      <button type="submit">Absenden</button>
+    </form>
+    <?php
+
+    if (isset($_GET['submit'])) {
+        $connect = new mysqli("localhost", "root", "", "database");
+
+        /*
+		// NUR ZUR UEBERPRUEFUNG DER SYNTAX
+		$ausgabe1 = $_GET['username'];
+		$ausgabe2 = $_GET['password'];
+                
+		echo "Sie haben $ausgabe1 eingegeben.<br>";
+		echo "Sie haben $ausgabe2 eingegeben.<br>";
+                
+                 */
+
+        $sqlstmt = "SELECT * FROM user WHERE Email ='" . $_GET['email'] . "' AND Passwort ='" . $_GET['password'] . "';";
+
+        echo $sqlstmt;
+
+        $result = $connect->query($sqlstmt);
+
+        if ($result->num_rows > 0) {
+            $datensatz = $result->fetch_assoc();
+            echo "login succesful";
+            echo "<br> Hallo " . $datensatz['vorname'] . ". ";
+            $_SESSION['benutzer'] = $datensatz['ID'];
+            $_SESSION['vorname'] = $datensatz['Vorname'];
+
+            // WEITERLEITUNG
+            header("location: willkommen.php");
+
+            exit();
+        } else {
+            session_destroy();
+            echo "login failed.<br>";
+        }
+        $connect->close();
+    }
+    ?>
+  </body>
+</html>
