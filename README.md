@@ -11,4 +11,4 @@ https://agilecasino.kehrwasser.com/room/2174
 
 
 # Excel-Sheet
-https://gfneducation-my.sharepoint.com/:x:/g/personal/ikram_senguen_gfn_education/ET-3aVCKkmpDv8Tc9SSSGjABZqYHhlAQeDkVHHtNWukGUA?e=m0Stj4
+https://docs.google.com/spreadsheets/d/1fn0OMcfoqL7Pg_PgsTKq0vuEafJ8rqYXrPWvWFeuAQ0/edit?usp=sharing
