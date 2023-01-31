@@ -1,7 +1,7 @@
 # Scrum-Team-2
 Inventarisierung IT Hardware
 
-## Features
+## ✨Features ✨
 - Login mit Passwortgeschützem Zugang
 - Inventar disponieren
 - Reservierung und Planung von Inventar auf Ihre Mitarbeiter, externe Dienstleister, Standorte, oder Abteilungen "Clever zuweisen durch drag and drop"
