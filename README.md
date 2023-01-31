@@ -8,3 +8,7 @@ https://miro.com/welcomeonboard/Rm5hakZWUGkwS0lOZEdxdFZ0WXhoOXVIaTlhbXNIbHB5d1hz
 
 # Planning Poker:
 https://agilecasino.kehrwasser.com/room/2174
+
+
+# Excel-Sheet
+https://gfneducation-my.sharepoint.com/:x:/g/personal/ikram_senguen_gfn_education/ET-3aVCKkmpDv8Tc9SSSGjABZqYHhlAQeDkVHHtNWukGUA?e=m0Stj4
