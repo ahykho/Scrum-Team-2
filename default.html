@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <style>
+      .login-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .form-control {
+        margin: 1em 0;
+      }
+      .form-control label {
+        display: block;
+        text-align: left;
+      }
+      .form-control input {
+        padding: 0.5em;
+        font-size: 1em;
+        width: 100%;
+      }
+      .reset-link {
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <form class="login-form">
+      <div class="form-control">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email">
+      </div>
+      <div class="form-control">
+        <label for="password">Passwort:</label>
+        <input type="password" id="password" name="password">
+      </div>
+      <div class="reset-link">
+        <a href="#">Passwort zurücksetzen</a>
+      </div>
+      <button type="submit">Absenden</button>
+    </form>
+  </body>
+</html>
