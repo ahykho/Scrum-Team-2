@@ -9,7 +9,7 @@ Inventarisierung IT Hardware
 - Reservierung und Planung von Inventar für Mitarbeiter, externe Dienstleister, Standorte, oder Abteilungen
 - Zentrale Inventarverwaltung (Einfach QR-Code Etikette auf den Objekten anbringen und inventarisieren.)
 
-[![N|Solid](https://gfneducation-my.sharepoint.com/:i:/g/personal/ikram_senguen_gfn_education/EZbvhPxM2jtGodrtmk8lk6cBkKbwYttmA4IrZ6Vt2MqsqA?e=cus7Vt)](https://nodesource.com/products/nsolid)
+[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
