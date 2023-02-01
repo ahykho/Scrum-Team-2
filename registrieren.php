@@ -73,8 +73,14 @@
       </div>
       <button type="submit" name="registrieren">Absenden</button>
     </form>
+
+
     <?php
+
+
 	if(isset($_GET['registrieren'])){
+
+
 		$con = new mysqli("localhost", "root", "", "inventarisierung");
 	// prüfen, ob Account schon vorhanden
 		$sqlstmt = "SELECT email, vorname, nachname 
@@ -83,21 +89,29 @@
 		// echo $sqlstmt . "<br>";
 		$query = $con->query($sqlstmt);
 	// in $query sollten unsere Ergebnis-Datensätze stehen
+
+
 		if ($query->num_rows == 0){
-			$sqlstmt = "INSERT INTO accounts (email, vorname, nachname, strasse, ort, plz, standort, rolle, passwort, mitarbeiternr, einstellungsdatum) 
-                        VALUES ('$_GET[email]', '$_GET[lastname]', '$_GET[firstname]', '$_GET[street]', '$_GET[city]', '$_GET[zipcode]','$_GET[location]', '$_GET[rolle]', '" . MD5($_GET['password']) . "'), '$_GET[employeenumber]', '$_GET[hiredate]');";
-			// echo $sqlstmt . "<br>";
+			$sqlstmt = "INSERT INTO accounts (vorname, nachname, mitarbeiternr, email, passwort) 
+      VALUES ('$_GET[firstname]', 
+              '$_GET[lastname]',
+              '$_GET[employeenumber]',
+              '$_GET[email]',
+              '$_GET[password]') ";
+			echo $sqlstmt . "<br>";
 	
 			$query = $con->query($sqlstmt);
-            echo "Registrierung erfolgreich abgeschlossen";
-			header("location: Login.php");
+      echo "Registrierung erfolgreich abgeschlossen";
+			header("location: login.php");
+
+
 		} else {
-			echo "Dieser Account ist bereits vorhanden.<br>";
-			while($ds = $query->fetch_assoc()){
-				if($ds['email'] == $_GET['email']){
-					echo "Die Mailadresse $_GET[email] ist bereits registriert.<br>";
-				}
-			}
+        echo "Dieser Account ist bereits vorhanden.<br>";
+        while($ds = $query->fetch_assoc()){
+          if($ds['email'] == $_GET['email']){
+            echo "Die Mailadresse $_GET[email] ist bereits registriert.<br>";
+          }
+        }
 		}
 		$con->close();
 	}
