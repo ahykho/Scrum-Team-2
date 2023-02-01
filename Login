@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+
+<?php		
+		
+	if(isset($_GET['login'])){
+		$connect = new mysqli("localhost", "root", "", "xyz");
+                
+                /*
+		// NUR ZUR UEBERPRUEFUNG DER SYNTAX
+		$ausgabe1 = $_GET['username'];
+		$ausgabe2 = $_GET['password'];
+                
+		echo "Sie haben $ausgabe1 eingegeben.<br>";
+		echo "Sie haben $ausgabe2 eingegeben.<br>";
+                
+                 */
+
+		$sqlstmt = "SELECT * FROM benutzer WHERE benutzername ='" . $_GET['username'] . "' AND kennwort ='" . $_GET['password'] . "';";
+
+		echo $sqlstmt;
+
+		$result = $connect->query($sqlstmt);
+		
+		if($result->num_rows > 0){
+			$datensatz = $result->fetch_assoc();
+			echo "login succesful";
+			echo "<br> Hallo " . $datensatz['vorname'] . ". ";
+			$_SESSION['benutzer'] = $datensatz['benutzerID'];
+			$_SESSION['vorname'] = $datensatz['vorname'];
+                        
+                        // WEITERLEITUNG
+			header("location: willkommen.php");
+		
+			exit();
+
+		} else {
+			session_destroy();
+			echo "login failed.<br>";
+			}	
+            $connect->close();
+	}
+?>	
+
+</html>
