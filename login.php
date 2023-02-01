@@ -3,6 +3,8 @@
 	session_unset();
 	session_start();
 ?>
+
+
 <html>
   <head>
     <style>
@@ -25,6 +27,8 @@
       }
     </style>
   </head>
+
+
   <body>
     <form class="login-form" action="<?php $_SERVER['PHP_SELF']; ?>" method="GET">
       <div class="form-control">
@@ -43,6 +47,9 @@
       </div>
       <button type="submit" name="submit">Absenden</button>
     </form>
+
+
+
     <?php
 
     if (isset($_GET['submit'])) {
