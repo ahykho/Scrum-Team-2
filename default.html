@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <style>
+      .login-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .form-control {
+        margin: 1em 0;
+        text-align: center;
+      }
+      .form-control label {
+        display: block;
+      }
+      .form-control input {
+        padding: 0.5em;
+        font-size: 1em;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <form class="login-form" action="login.php" method="post">
+      <div class="form-control">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email">
+      </div>
+      <div class="form-control">
+        <label for="password">Passwort:</label>
+        <input type="password" id="password" name="password">
+      </div>
+	  <div class="form-control right-aligned">
+        <a href="reset-password.html">Passwort vergessen?! :O </a>
+      </div>
+      <div class="form-control">
+        <a href="register.html">Registrierung</a>
+      </div>
+      <button type="submit" name="submit" >Absenden</button>
+    </form>
+  </body>
+</html>
