@@ -1,0 +1,34 @@
+<?php
+session_start();
+
+if(isset($_POST['register'])){
+  $email = mysqli_real_escape_string($con, $_POST['email']);
+  $lastname = mysqli_real_escape_string($con, $_POST['lastname']);
+  $firstname = mysqli_real_escape_string($con, $_POST['firstname']);
+  $street = mysqli_real_escape_string($con, $_POST['street']);
+  $city = mysqli_real_escape_string($con, $_POST['city']);
+  $zipcode = mysqli_real_escape_string($con, $_POST['zipcode']);
+  $location = mysqli_real_escape_string($con, $_POST['location']);
+  $rolle = mysqli_real_escape_string($con, $_POST['rolle']);
+  $password = mysqli_real_escape_string($con, $_POST['password']);
+  $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+  $employeenumber = mysqli_real_escape_string($con, $_POST['employeenumber']);
+  $hiredate = mysqli_real_escape_string($con, $_POST['hiredate']);
+  
+  $check_query = "SELECT * FROM accounts WHERE email='$email'";
+  $check_result = mysqli_query($con, $check_query);
+  
+  if (mysqli_num_rows($check_result) > 0) {
+    echo "Email already exists";
+  } else {
+    $register_query = "INSERT INTO accounts (email, vorname, nachname, strasse, ort, plz, standort, rolle, passwort, mitarbeiternr, einstellungsdatum) 
+                        VALUES ('$email', '$lastname', '$firstname', '$street', '$city', '$zipcode','$location', '$rolle', '$hashed_password', '$employeenumber', '$hiredate')";
+    $register_result = mysqli_query($con, $register_query);
+    if ($register_result) {
+      echo "Registration successful";
+    } else {
+      echo "Error: " . mysqli_error($con);
+    }
+  }
+}
+?>
