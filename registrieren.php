@@ -92,12 +92,31 @@
 
 
 		if ($query->num_rows == 0){
-			$sqlstmt = "INSERT INTO accounts (vorname, nachname, mitarbeiternr, email, passwort) 
-      VALUES ('$_GET[firstname]', 
-              '$_GET[lastname]',
-              '$_GET[employeenumber]',
-              '$_GET[email]',
-              '$_GET[password]') ";
+			$sqlstmt = "INSERT INTO accounts (vorname, 
+                                        nachname, 
+                                        strasse,
+                                        plz,
+                                        ort,
+                                        mitarbeiternr, 
+                                        email, 
+                                        standort,
+                                        rolle,
+                                        einstellungsdatum,
+                                        passwort) 
+
+                                  VALUES ('$_GET[firstname]', 
+                                          '$_GET[lastname]',
+                                          '$_GET[street]',
+                                          '$_GET[zipcode]',
+                                          '$_GET[city]',
+                                          '$_GET[employeenumber]',
+                                          '$_GET[email]',
+                                          '$_GET[location]',
+                                          '$_GET[rolle]',
+                                          '$_GET[hiredate]',
+                                          '$_GET[password]') ";
+
+
 			echo $sqlstmt . "<br>";
 	
 			$query = $con->query($sqlstmt);
