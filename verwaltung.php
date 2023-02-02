@@ -168,7 +168,17 @@
     </tr>
         
                                         <!-- TODO -->
-    <tr><td></td>               <td><button type="submit" name="changedata">Daten &auml;ndern</button></td></tr>
+    <tr>
+    <td>
+    <p><button type="submit" name="logout"><a href="login.php" class="button" name="logout">Logout</button></a></p>
+    <?php 
+                                                            if(isset($_GET['logout'])){
+                                                               session_start();
+                                                               session_unset();
+                                                            }
+                                                            ?>
+    </td>
+                               <td><button type="submit" name="changedata">Daten &auml;ndern</button></td></tr>
  
 </table>
 
