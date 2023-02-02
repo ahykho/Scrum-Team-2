@@ -106,18 +106,18 @@
       document.body.appendChild(renderer.domElement);
 
       starGeo = new THREE.Geometry();
-      for(let i=0;i<6000;i++) {
+      for(let i=0;i<1000;i++) {
         star = new THREE.Vector3(
           Math.random() * 600 - 300,
           Math.random() * 600 - 300,
           Math.random() * 600 - 300
         );
         star.velocity = 0;
-        star.acceleration = 0.02;
+        star.acceleration = 0.003;
         starGeo.vertices.push(star);
       }
 
-      let sprite = new THREE.TextureLoader().load( 'CSS/scrum.png' );
+      let sprite = new THREE.TextureLoader().load( 'CSS/scrum2.png' );
       let starMaterial = new THREE.PointsMaterial({
         color: 0xaaaaaa,
         size: 7,
