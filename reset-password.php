@@ -107,10 +107,10 @@
         starGeo.vertices.push(star);
       }
 
-      let sprite = new THREE.TextureLoader().load( 'CSS/star.png' );
+      let sprite = new THREE.TextureLoader().load( 'CSS/scrum.png' );
       let starMaterial = new THREE.PointsMaterial({
         color: 0xaaaaaa,
-        size: 0.7,
+        size: 7,
         map: sprite
       });
 
