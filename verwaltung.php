@@ -167,7 +167,7 @@
                                 ?></td>
     </tr>
         
-                                        <!-- TODO -->
+
     <tr>
     <td>
     <p><button type="submit" name="logout"><a href="login.php" class="button" name="logout">Logout</button></a></p>
@@ -178,7 +178,7 @@
                                                             }
                                                             ?>
     </td>
-                               <td><button type="submit" name="changedata">Daten &auml;ndern</button></td></tr>
+                               <td><a href="edit.php"><button type="submit" name="changedata">Daten &auml;ndern</button></a></td></tr>
  
 </table>
 
