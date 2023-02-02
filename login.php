@@ -117,7 +117,7 @@
         starGeo.vertices.push(star);
       }
 
-      let sprite = new THREE.TextureLoader().load( 'star.png' );
+      let sprite = new THREE.TextureLoader().load( 'CSS/star.png' );
       let starMaterial = new THREE.PointsMaterial({
         color: 0xaaaaaa,
         size: 0.7,
