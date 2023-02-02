@@ -40,7 +40,7 @@
         <input type="password" id="password" name="password">
       </div>
 	  <div class="form-control right-aligned">
-        <a href="reset-password.html">Passwort vergessen?! :O </a>
+        <a href="reset-password.php">Passwort vergessen?! ;@ </a>
       </div>
       <div class="form-control">
         <a href="registrieren.php">Registrierung</a>
