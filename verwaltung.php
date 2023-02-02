@@ -177,6 +177,34 @@
 <!-- WAREN -->
 <h2>Warenauswahl</h2>
 
+
+<?php
+                                     
+                    $connect = new mysqli("localhost", "root", "", "inventarisierung");
+                                                                                                                    
+                    $sqlstmt = "SELECT rolle FROM accounts WHERE id = " . $_SESSION['id'];
+                                            
+                    $query = mysqli_query($connect,$sqlstmt);
+                             
+                    while($x=mysqli_fetch_array($query)){
+                        $rolle = $x['rolle'];
+                                echo "Sie sind " . $rolle;
+                                echo "<p></p>";
+                    }
+
+                    if($rolle == "Mitarbeiter") {
+                        echo "Zugriff: Mitarbeiter";
+
+                    } 
+                    else {
+                        if($rolle == "Student")
+                        echo "Zugriff: Student";
+
+                    }
+                
+        ?>
+<p></p>
+
 <table cellpadding="1em" cellspacing="5em" border="1px">
 <tr>
     <td>Seriennummer </td>  
