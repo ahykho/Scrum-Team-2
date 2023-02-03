@@ -1,3 +1,8 @@
+<?php
+	session_unset();
+	// session_destroy();
+	session_start();
+?>
 <html>
   <head>
     <style>
@@ -21,18 +26,19 @@
     </style>
   </head>
   <body>
-    <form class="registration-form" action="insert.php" method="post">
+    <form class="registration-form" action="<?php $_SERVER['PHP_SELF']; ?>" method="GET">
       <div class="form-control">
+        <H2>Daten &auml;ndern</h2>
         <label for="email">E-mail:</label>
         <input type="email" id="email" name="email">
       </div>
       <div class="form-control">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
+        <label for="lastname">Nachname:</label>
+        <input type="text" id="lastname" name="lastname">
       </div>
       <div class="form-control">
-        <label for="first-name">Vorname:</label>
-        <input type="text" id="first-name" name="first-name">
+        <label for="firstname">Vorname:</label>
+        <input type="text" id="firstname" name="firstname">
       </div>
       <div class="form-control">
         <label for="street">Strasse:</label>
@@ -43,30 +49,31 @@
         <input type="text" id="city" name="city">
       </div>
       <div class="form-control">
-        <label for="zip-code">PLZ:</label>
-        <input type="text" id="zip-code" name="zip-code">
+        <label for="zipcode">PLZ:</label>
+        <input type="text" id="zipcode" name="zipcode">
       </div>
       <div class="form-control">
         <label for="location">Standort:</label>
         <input type="text" id="location" name="location">
       </div>
       <div class="form-control">
-        <label for="status">Status:</label>
-        <input type="text" id="status" name="status">
+        <label for="rolle">Rolle:</label>
+        <input type="text" id="rolle" name="rolle">
       </div>
       <div class="form-control">
         <label for="password">Passwort:</label>
         <input type="password" id="password" name="password">
       </div>
       <div class="form-control">
-        <label for="employee-number">Mitarbeiter Nummer:</label>
-        <input type="text" id="employee-number" name="employee-number">
+        <label for="employeenumber">Mitarbeiter Nummer:</label>
+        <input type="text" id="employeenumber" name="employeenumber">
       </div>
       <div class="form-control">
-        <label for="hire-date">Einstellungsdatum:</label>
-        <input type="date" id="hire-date" name="hire-date">
+        <label for="hiredate">Einstellungsdatum:</label>
+        <input type="text" id="hiredate" name="hiredate">
       </div>
-      <button type="submit">Absenden</button>
+      <a href="verwaltung.php"><button type="submit" name="aendern">Absenden</a></button>
     </form>
+
   </body>
 </html>
