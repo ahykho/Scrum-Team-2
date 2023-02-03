@@ -88,7 +88,6 @@
     ?>
 	
 	
-	
 	<script src="JavaScript/three.min.js"></script>
     <script>
     let scene, camera, renderer, stars, starGeo;

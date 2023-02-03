@@ -10,11 +10,13 @@
 <head>
     <title>Materialverwaltung</title>
 
-    <link href="inventartools/css.css" rel="stylesheet" type="text/css"/> 
+    <!-- <link href="inventartools/css.css" rel="stylesheet" type="text/css"/> -->
 
 </head>
 
 <body>
+<font face="Arial">
+
     <h1>Willkommen zur Materialverwaltung</h1>
 
     <?php
@@ -52,7 +54,6 @@
     <tr>
         <td>Name</td>
                                 <td><?php
-    
                                     $connect = new mysqli("localhost", "root", "", "inventarisierung");
                                                                                                             
                                     $sqlstmt = "SELECT vorname, nachname FROM accounts WHERE id = " . $_SESSION['id'];
@@ -63,8 +64,7 @@
                                         $vorname = $x['vorname'];
                                         $nachname = $x['nachname'];
 
-                                                echo $vorname . " " . $nachname;
-                                            
+                                                echo $vorname . " " . $nachname;     
                                     }
                                 ?></td>
     </tr>
@@ -72,7 +72,6 @@
     <tr>
         <td>Adresse</td>
                                 <td><?php
-                                
                                     $connect = new mysqli("localhost", "root", "", "inventarisierung");
                                                                                                             
                                     $sqlstmt = "SELECT strasse, plz, ort FROM accounts WHERE id = " . $_SESSION['id'];
@@ -84,8 +83,7 @@
                                         $plz = $x['plz'];
                                         $ort = $x['ort'];
 
-                                                echo $strasse . ", " . $plz . " " . $ort;
-                                            
+                                                echo $strasse . ", " . $plz . " " . $ort;   
                                     }
                                 ?></td>
 
@@ -94,7 +92,6 @@
     <tr>
         <td>E-Mail</td>
                                 <td><?php
-                                    
                                     $connect = new mysqli("localhost", "root", "", "inventarisierung");
                                                                                                             
                                     $sqlstmt = "SELECT email FROM accounts WHERE id = " . $_SESSION['id'];
@@ -104,8 +101,7 @@
                                     while($x=mysqli_fetch_array($query)){
                                         $email = $x['email'];
 
-                                                echo $email;
-                                            
+                                                echo $email;      
                                     }
                                 ?></td>
     </tr>
@@ -113,7 +109,6 @@
     <tr>
         <td>Rolle</td>
                                 <td><?php
-                                    
                                     $connect = new mysqli("localhost", "root", "", "inventarisierung");
                                                                                                             
                                     $sqlstmt = "SELECT rolle FROM accounts WHERE id = " . $_SESSION['id'];
@@ -123,8 +118,7 @@
                                     while($x=mysqli_fetch_array($query)){
                                         $rolle = $x['rolle'];
 
-                                                echo $rolle;
-                                            
+                                                echo $rolle;     
                                     }
                                 ?></td>
     </tr>
@@ -132,7 +126,6 @@
     <tr>
         <td>Standort</td>
                                 <td><?php
-                                    
                                     $connect = new mysqli("localhost", "root", "", "inventarisierung");
                                                                                                             
                                     $sqlstmt = "SELECT standort FROM accounts WHERE id = " . $_SESSION['id'];
@@ -142,8 +135,7 @@
                                     while($x=mysqli_fetch_array($query)){
                                         $standort = $x['standort'];
 
-                                                echo $standort;
-                                            
+                                                echo $standort;      
                                     }
                                 ?></td>
     </tr>
@@ -151,7 +143,6 @@
     <tr>
         <td>Einstellungsdatum</td>
                                 <td><?php
-                                    
                                     $connect = new mysqli("localhost", "root", "", "inventarisierung");
                                                                                                             
                                     $sqlstmt = "SELECT einstellungsdatum FROM accounts WHERE id = " . $_SESSION['id'];
@@ -161,35 +152,84 @@
                                     while($x=mysqli_fetch_array($query)){
                                         $einstellungsdatum = $x['einstellungsdatum'];
 
-                                                echo $einstellungsdatum;
-                                            
+                                                echo $einstellungsdatum;      
                                     }
                                 ?></td>
     </tr>
         
-                                        <!-- TODO -->
+
     <tr>
     <td>
     <p><button type="submit" name="logout"><a href="login.php" class="button" name="logout">Logout</button></a></p>
-    <?php 
+                                                    <?php 
                                                             if(isset($_GET['logout'])){
                                                                session_start();
                                                                session_unset();
                                                             }
-                                                            ?>
+                                                    ?>
     </td>
-                               <td><button type="submit" name="changedata">Daten &auml;ndern</button></td></tr>
+                               <td><a href="edit.php"><button type="submit" name="changedata">Daten &auml;ndern</button></a></td></tr>
  
 </table>
 
 
 <p>
+
+
+<!-- SUCHE -->
+
+<form class="search-form" action="<?php $_SERVER['PHP_SELF']; ?>" method="GET">
+
+    <label for="search_term">Suche:</label><br>
+    <input type="text" id="search_term" name="search_term">
+  <button type="submit" name="search">Suche</button>
+
+  
+<?php
+$con = new mysqli("localhost", "root", "", "inventarisierung");
+
+if ($con->connect_error) {
+die("Connection failed: " . $con->connect_error);
+}
+
+if(isset($_GET['search'])){
+$search = $_GET['search'];
+$query = "SELECT * FROM hardware WHERE hersteller LIKE '%" . $_GET['search_term'] .  "%'";
+
+//echo $query;
+
+$result = mysqli_query($con, $query);
+if(mysqli_num_rows($result) > 0){
+while($row = mysqli_fetch_array($result)){
+echo "<p>Seriennummer: ".$row['seriennummer']."<br>";
+echo "Hersteller: ".$row['hersteller']."<br>";
+echo "Betriebsystem: ".$row['betriebssystem']."<br>";
+echo "Zustand: ".$row['zustand']."<br>";
+echo "Standort: ".$row['standort']."<br>";
+echo "Zubehoer: ".$row['zubehoer']."<br>";
+echo "Garantieablaufdatum: ".$row['garantieablaufdatum']."<br>";
+echo "Kaufdatum: ".$row['kaufdatum']."<br>";
+echo "Verfuegbarkeit: ".$row['verfuegbarkeit']."<br>";
+echo "Ausgabedatum: ".$row['ausgabedatum']."<br><br>";
+echo "<hr>";
+
+}
+} else {
+echo "No results found.";
+}
+}
+
+$con->close();
+?>
+
+
+</p>
+
 <!-- WAREN -->
 <h2>Warenauswahl</h2>
 
 
-<?php
-                                     
+<?php         
                     $connect = new mysqli("localhost", "root", "", "inventarisierung");
                                                                                                                     
                     $sqlstmt = "SELECT rolle FROM accounts WHERE id = " . $_SESSION['id'];
@@ -456,8 +496,7 @@
 
 
 
-
-
+</font>
 </body>
 
 </html>
